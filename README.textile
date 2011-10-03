@@ -1,9 +1,12 @@
 h1. BaseApp2
 
+h2. Fork information
+This fork supports polish language and works with ruby 1.9.2. 
+Fork author: http://ernest.bzdury.pl
+
 h2. Requirements
 
-Rails 3.0.9
-For Rails 2.3 please use the alternative branch.
+Rails 3.1
 
 h2. Features
 

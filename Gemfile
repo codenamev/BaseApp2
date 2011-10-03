@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '~> 3.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,12 +22,15 @@ gem "declarative_authorization"
 gem "aasm", "2.2.0"
 gem "gravatar_image_tag"
 gem "nifty-generators", :group => :development
+gem "polish"
+gem "simple_form"
+
 # https://github.com/marten/has_details
 # gem "has_details" # , :git => 'git://github.com/marten/has_details.git'
 
 group :development do
   # To use debugger
-  gem 'ruby-debug'
+  gem 'ruby-debug19'
   gem 'sqlite3-ruby', :require => "sqlite3"
 end
 

@@ -7,9 +7,9 @@
 
 	<title><%= configatron.site_name %></title>
 	
-	<%= (stylesheet_link_merged :admin).html_safe %>
+	<%= stylesheet_link_merged 'default.css', 'admin.css' %>
 	<%= javascript_include_tag "http://code.jquery.com/jquery-1.5.2.min.js"%>
-	<%= (javascript_include_merged :base ).html_safe %>
+	<%= javascript_include_tag 'rails.js', 'application.js' %>
 	
   	<%= csrf_meta_tag %>
 </head>
