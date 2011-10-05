@@ -44,6 +44,8 @@
 <table class="overview">
 	<%= cell "Login", "#{in_place_editor_field :user, 'login'}" %>
 	<%= cell "User ID", h(@user.id) %>
+	<%= cell "Roles", @user.roles.map{|x| x.name.humanize }.join(", ") %>
+	
 
 	<%= cell_separator %>
 	
