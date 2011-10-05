@@ -43,6 +43,7 @@ Rails3::Application.routes.draw do
         put :reset_password
         get :set_user_login
         get :set_user_email        
+        match 'role/:role' => "users#toggle_role", :as => "toggle_role"
       end
       collection do
         get :pending

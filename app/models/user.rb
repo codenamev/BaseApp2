@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     role_symbols.include?(role.to_sym) || role_symbols.include?(:admin)
   end
   
+  def has_real_role?(role)
+    role_symbols.include?(role.to_sym)
+  end
+  
   def role_symbols
     @role_symbols ||= roles.map {|r| r.name.underscore.to_sym }
   end

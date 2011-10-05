@@ -29,6 +29,16 @@
 	<% end -%>
     -->
 </ul>	
+
+<h2>Roles</h2>	
+
+<ul>
+	<% Role.all.each do |x| -%>
+		<li>
+		<%= link_to "#{@user.has_real_role?(x.name.underscore.to_sym) ? 'Take' : 'Grant'} #{x.name.humanize.gsub(/-/, ' ')}", toggle_role_admin_user_path(@user, x.name), :method => :post %>
+		</li>
+	<% end -%>
+</ul>
 <% end -%>
 
 <table class="overview">

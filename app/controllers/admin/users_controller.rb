@@ -4,6 +4,24 @@ class Admin::UsersController < Admin::BaseController
     in_place_edit_for :user, attr.to_sym
   end
   
+  def toggle_role
+    @user = User.find(params[:id])
+    role = Role.find_by_name(params[:role])
+    if @user.roles.include?(role)
+      @user.roles.delete(role)
+      flash[:notice] = "Granted #{role.name} permissions"
+    else
+      @user.roles << role
+      @user.save
+      flash[:notice] = "Revoked #{role.name} permissions"
+    end
+    if request.env["HTTP_REFERER"].present?
+      redirect_to :back
+    else
+      redirect_to admin_user_path(@user)
+    end
+  end
+  
   def search
     # Basic Search with pagination
     @users = User.search(params[:search], params[:page])
