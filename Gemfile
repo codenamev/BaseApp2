@@ -23,7 +23,13 @@ gem "aasm", "2.2.0"
 gem "gravatar_image_tag"
 gem "nifty-generators", :group => :development
 gem "polish"
+gem "ruby_parser"
 gem "simple_form"
+gem "i18n_generators"
+gem "i18n_routing"
+gem "kaminari"
+gem "delayed_job"
+gem "delayed_job_admin", :git => "git://github.com/samdalton/delayed_job_admin.git"
 
 # https://github.com/marten/has_details
 # gem "has_details" # , :git => 'git://github.com/marten/has_details.git'

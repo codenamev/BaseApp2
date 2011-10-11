@@ -9,6 +9,10 @@ pl:
         one: "%{resource} nie został zapisany z powodu jednego błędu:"
         other: "%{resource} nie został zapisany z powodu %{count} błędów:"
   devise:
+    user_sessions:
+      user:
+        signed_in: 'Zalogowano'
+        signed_out: 'Wylogowano'
     failure:
       already_authenticated: 'Jesteś już zalogowany.'
       unauthenticated: 'Aby kontynuować zaloguj lub zarejestruj się.'

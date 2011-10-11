@@ -1,0 +1,74 @@
+# Ernest Bursa
+# http://ernest.bzdury.pl
+pl:
+  admin:
+    dashboard: 
+      title: Kokpit
+      about:
+        title: 'Jesteś zalogowany jako administrator, spoglądasz teraz na kokpit.'
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    settings: 
+      title: 'Ustawienia'
+      options:
+        manage: "Zarządzaj ustawieniami %{app}"
+    users:
+      title: "Użytkownicy"
+      options:
+        manage: "Zarządzaj kontami użytkownika"
+        new: "Nowy użytkownik"
+        activate: "Aktywuj"
+        suspend: "Zawieś"
+        delete: "Skasuj"
+        roles: "Uprawnienia"
+        send_password: "Wyślij nowe hasło"
+      show:
+        title: "Wyświetlanie użytkownika %{login}"
+        status: "Status konta: %{status}"
+        grant: "Nadaj uprawnienia %{role}"
+        take: "Zabierz uprawnienia %{role}"
+      index:
+        display:
+          zero: Brak użytkowników
+          one: Jeden użytkownik
+          few: %{count} użytkowników
+          other: %{count} użytkowników
+        search: Szukaj
+        search_by: Email lub login...
+        filtr: Filtruj użytkowników
+        options:
+          all: Wszyscy użytkownicy
+          active: Tylko aktywni użytkownicy
+          suspended: Tylko zawieszeni użytkownicy
+          pending: Tylko użytkownicy oczekujący na aktywację
+          deleted: Tylko skasowani użytkownicy
+    delayed_jobs:
+      title: "Zlecenia automatyczne"
+      attributes:
+        id: ID
+        priority: Priorytet
+        attempts: Prób
+        run_at: Uruchomiono
+        locked_at: Zablokowano
+        created_at: Utworzono
+
+    announcements:
+      title: 'Ogłoszenia'
+      options:
+        manage: 'Zarządzaj ogłoszeniami'
+      index:
+        options:
+          new: Nowe ogłoszenie
+      new:
+        title: Nowe ogłoszenie
+      edit:
+        title: Edycja ogłoszenia
+    commits:
+      title: "Post-Commits"
+    options:
+      user_managment: 'Zarządzanie użytkownikami'
+      administration: "Administracja"
+      my_accout: "Moje konto"
+    session:
+      log_in: "Zaloguj Się"
+      sign_up: "Zarejestruj Się"
+      log_out: "Wyloguj"

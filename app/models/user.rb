@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   # Hooks
   after_create :create_profile, :register!
   
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :language
 
   before_validation(:set_default, :on => :create)
   
