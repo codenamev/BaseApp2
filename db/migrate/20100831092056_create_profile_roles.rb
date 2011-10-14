@@ -35,6 +35,13 @@ class CreateProfileRoles < ActiveRecord::Migration
       t.column :user_id, :integer
     end
     
+    create_table :authentications do |t|
+      t.integer :user_id
+      t.string :provider
+      t.string :uid
+      t.timestamps
+    end
+    
     # Create admin role and user
     admin_role = Role.create(:name => 'admin')
     
@@ -53,8 +60,8 @@ class CreateProfileRoles < ActiveRecord::Migration
     drop_table :profiles
     #drop_table :open_id_authentication_associations
     #drop_table :open_id_authentication_nonces
+    drop_table :authentications
     drop_table :roles
     drop_table :roles_users
-    
   end
 end
