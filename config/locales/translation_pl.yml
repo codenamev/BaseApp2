@@ -7,6 +7,12 @@ pl:
     edited: Edytowano
     showing: Wyświetlam
     destroyed: Skasowano
+    forget_about_it: zapomnij o tym
+  words: 
+    back: cofnij
+    next: następny
+    previous: poprzedni
+    or: lub
   activerecord:
     models:
       user: "Użytkownik"   

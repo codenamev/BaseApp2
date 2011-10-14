@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_filter :find_user, 
     :only => [:profile, 
               :edit_password,   :update_password, 
-              :edit_email,      :update_email ]
+              :edit_email,      :update_email,
+              :set_login ]
   
   layout 'login'
   
@@ -73,6 +74,31 @@ class UsersController < ApplicationController
       redirect_to edit_email_user_url(@user)
     end
   end  
+  
+  def set_login
+
+  end
+  
+  def update_login
+    if @user.login.present?
+      flash[:notice] = "You cannot update your login. If you still want so please contact site administrator!"
+      redirect_to :back
+    end
+    
+    if current_user == @user
+      if @user.update_attributes(:login => params[:login])
+        flash[:notice] = "Your login has been updated."
+        redirect_to profile_url(@user)
+      else
+        flash[:error] = "Your login could not be updated."
+        redirect_to set_login_user_url(@user)
+      end
+    else
+
+      flash[:error] = "You cannot update another user's email address!"
+      redirect_to edit_email_user_url(@user)
+    end
+  end
   
   # DELETE /users/1
   # DELETE /users/1.xml

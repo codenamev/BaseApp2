@@ -29,7 +29,9 @@ gem "i18n_generators"
 gem "i18n_routing"
 gem "kaminari"
 gem "delayed_job"
-gem "delayed_job_admin", :git => "git://github.com/samdalton/delayed_job_admin.git"
+gem "oauth2"
+gem "fb_graph"
+gem "omniauth"
 
 # https://github.com/marten/has_details
 # gem "has_details" # , :git => 'git://github.com/marten/has_details.git'
@@ -38,6 +40,7 @@ group :development do
   # To use debugger
   gem 'ruby-debug19'
   gem 'sqlite3-ruby', :require => "sqlite3"
+  gem "nifty-generators"
 end
 
 # Bundle the extra gems:

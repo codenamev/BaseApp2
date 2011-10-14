@@ -5,7 +5,38 @@ pl:
     dashboard:
       title: Kokpit
     profile:
-      title: Profil
+      title: Mój profil
+      details: Szczegóły
+      me: "Ja (%{name})"
+      profile: Profil
+      avatar_change: Jak zmienić mój avatar?
+      attributes:
+        language: Język
+        real_name: Imię
+        location: Lokalizacja
+        website: Strona internetowa
+        login: Login
+        email: Adres email
+        password: Hasło
+        created_at: Utworzony
+        updated_at: Zaktualizowany
+      login:
+        new: Twój nowy login
+        text: "Proszę wpisz poniżej swój nowy login, zapamiętaj go gdyż możesz go później potrzebować."
+        set: Zapisz mój nowy login
+      actions:
+        update: Aktualizuj profil
+        update_email: Aktualizuj adres email
+        change_password: Zmień hasło
+        delete_account: Usuń konto
+        edit: Edycja profilu
+        set_login: Zarezerwuj login
+    login:
+      title: Logowanie
+      text:
+        signed_with: Jesteś akutalnie zalogowany używając następujących usług
+        sign_with_other: Loguj się używając innych usług
+        sign_using: Zaloguj się używając jednej z poniższych usług
   admin:
     dashboard: 
       title: Kokpit administratora
@@ -77,3 +108,18 @@ pl:
     log_in: "Zaloguj Się"
     sign_up: "Zarejestruj Się"
     log_out: "Wyloguj"
+  options:
+    save_changes: Zapisz zmiany
+    save: Zapisz
+    cancel: Anuluj
+    destroy: Skasuj
+    create: Utwórz
+    create_new: Utwórz nowy
+    edit: Edytuj
+    edit_record: Edytuj rekord
+  flash:
+    update_success: Wpis został poprawnie zaktualizowany
+    destroy_success: Wpis został skasowany
+    create_success: Wpis został poprawnie utworzony
+    create_error: Nie można utworzyć rekordu
+    update_error: Nie można zaktualizować rekordu

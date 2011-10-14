@@ -22,6 +22,10 @@ class Setting < ActiveRecord::Base
       setting = nil
     end
     
-    setting.nil? ? "" : setting.value
+    if setting && setting.field_type == "boolean"
+      setting.value.to_i == 1 ? true : false
+    else
+      setting.nil? ? "" : setting.value
+    end
   end
 end

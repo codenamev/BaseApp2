@@ -2,17 +2,18 @@ require 'aasm_roles'
 class User < ActiveRecord::Base
   include AasmRoles
   
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable, :trackable
   validates_uniqueness_of :login, :email, :case_sensitive => false
+  
   # Relations
   has_and_belongs_to_many :roles
   has_one :profile
+  has_many :authentications
   
   # Hooks
   after_create :create_profile, :register!
-  
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :language
 
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :language
   before_validation(:set_default, :on => :create)
   
   def self.search(search, page)
@@ -21,6 +22,14 @@ class User < ActiveRecord::Base
     else  
       all
     end
+  end
+  
+  def site_name
+    self.login || self.email.split("@").first
+  end
+  
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
   
   def admin?
@@ -62,15 +71,25 @@ class User < ActiveRecord::Base
       self.where("email = ?", conditions[:login]).limit(1).first
   end
 
-  protected
-
-
-  def password_required?
-    return false if openid_login?
-    return false if twitter_login?
-    (encrypted_password.blank? || !password.blank?)
+  def apply_omniauth(omniauth)
+    case omniauth['provider']
+    when 'facebook'
+      self.apply_facebook(omniauth)
+    end
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :token =>(omniauth['credentials']['token'] rescue nil))
   end
 
+  def facebook
+    @fb_user ||= FbGraph::User.me(self.authentications.find_by_provider('facebook').token).fetch
+  end
+
+  protected
+  
+  def apply_facebook(omniauth)
+    if (extra = omniauth['extra']['user_hash'] rescue false)
+      self.email = (extra['email'] rescue '')
+    end
+  end
   
   def create_profile
     # Give the user a profile

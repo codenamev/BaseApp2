@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   def update    
     unless @profile.nil?
       @profile.update_attributes(params[:profile])
-      flash[:notice] = "Your profile has been succesfully updated."
+      flash[:notice] = I18n.t('flash.update_success')
       redirect_to profile_url(@profile.user)
     else
       render :edit
