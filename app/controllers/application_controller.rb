@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     if devise_controller?
       "login"
     else
-      controller.request.xhr? ? 'popup' : 'application' 
+      controller.request.xhr? ? 'simple' : 'application' 
     end
   }
   
