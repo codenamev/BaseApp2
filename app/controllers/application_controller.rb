@@ -18,7 +18,14 @@ class ApplicationController < ActionController::Base
   alias :logged_in? :user_signed_in?
   helper_method :logged_in?
 
-  layout :layout_by_resource  
+  layout Proc.new do |controller| 
+    if devise_controller?
+      "login"
+    else
+      controller.request.xhr? ? 'popup' : 'application' 
+    end
+  end
+  
   def layout_by_resource
     if devise_controller? 
       "login"
