@@ -7,7 +7,7 @@ pl:
     profile:
       title: Mój profil
       details: Szczegóły
-      me: "Ja (%{name})"
+      me: "Ja"
       profile: Profil
       avatar_change: Jak zmienić mój avatar?
       attributes:
