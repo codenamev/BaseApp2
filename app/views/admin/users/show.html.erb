@@ -49,7 +49,7 @@
   <% end %>
 	<%= cell "ID", h(@user.id) %>
 	<%= cell t('activerecord.attributes.user.language'), h(@user.language) %>
-	<%= cell t('activerecord.attributes.user.facebook'), @user.facebook.present? %>
+	<%= cell t('activerecord.attributes.user.facebook'), (t('misc.words.yes') if @user.facebook?) %>
 
 	<%= cell t('activerecord.attributes.user.roles'), @user.roles.map{|x| x.name.humanize }.join(", ") %>
 	
