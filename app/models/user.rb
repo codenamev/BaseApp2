@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     has_role?(:admin)
   end
   
+  def facebook?
+    self.authentications.find_by_provider('facebook').present?
+  end
+  
   def has_role?(role)
     role_symbols.include?(role.to_sym) || role_symbols.include?(:admin)
   end

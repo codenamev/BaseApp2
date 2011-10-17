@@ -42,7 +42,7 @@
 	<td><%= link_to h(user.login || user.site_name), admin_user_url(user) %></td>
 	<td><%= user.email %></td>
 	<td><%= user.state %></td>
-	<td><%= t('misc.words.yes') if user.facebook.present? rescue nil %></td>
+	<td><%= t('misc.words.yes') if user.facebook? %></td>
 	<td><%= t('misc.words.yes') if user.admin? %></td>
     <td class="actions">
 		<% if user.pending? %>
