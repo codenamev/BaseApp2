@@ -28,6 +28,7 @@
 	<th><%= t('activerecord.attributes.user.login')%></th>
 	<th><%= t('activerecord.attributes.user.email')%></th>
 	<th><%= t('activerecord.attributes.user.status')%></th>
+	<th><%= t('activerecord.attributes.user.facebook')%></th>
 	<th><%= t('activerecord.attributes.user.admin')%></th>
   </tr>
   
@@ -38,10 +39,11 @@
 	
   <tr>
 	<td><%= user.id %></td>
-	<td><%= link_to h(user.login), admin_user_url(user) %></td>
+	<td><%= link_to h(user.login || user.site_name), admin_user_url(user) %></td>
 	<td><%= user.email %></td>
 	<td><%= user.state %></td>
-	<td><%= t('misc.words.yes') unless !user.admin? %></td>
+	<td><%= t('misc.words.yes') if user.facebook.present? %></td>
+	<td><%= t('misc.words.yes') if user.admin? %></td>
     <td class="actions">
 		<% if user.pending? %>
 			<%= link_to t('admin.users.options.activate'), activate_admin_user_url(user), :method => :put %>

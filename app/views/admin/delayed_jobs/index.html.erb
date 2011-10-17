@@ -15,7 +15,7 @@
 
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= job.headline %></td>
+    <td><%= job.id %></td>
     <td><%= job.priority %></td>
     <td><%= job.attempts %></td>
     <td><%= l(job.run_at, :format => :short) %></td>

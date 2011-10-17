@@ -47,7 +47,8 @@ pl:
         password: Hasło
         created_at: Utworzony
         updated_at: Zaktualizowany
-
+        facebook: Facebook
+        
       announcement:
         headline: "Nagłówek"   
         message: "Wiadomość"   
