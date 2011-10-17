@@ -42,9 +42,14 @@
 <% end -%>
 
 <table class="overview">
-	<%= cell t('activerecord.attributes.user.login'), "#{in_place_editor_field :user, 'login'}" %>
+  <% if @user.login.present? %>
+  	<%= cell t('activerecord.attributes.user.login'), "#{in_place_editor_field :user, 'login'}" %>
+  <% else %>
+    <%= cell t('activerecord.attributes.user.language'), h(@user.site_name) %>
+  <% end %>
 	<%= cell "ID", h(@user.id) %>
 	<%= cell t('activerecord.attributes.user.language'), h(@user.language) %>
+	<%= cell t('activerecord.attributes.user.facebook'), @user.facebook.present? %>
 
 	<%= cell t('activerecord.attributes.user.roles'), @user.roles.map{|x| x.name.humanize }.join(", ") %>
 	
