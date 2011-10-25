@@ -7,7 +7,7 @@
 <% else -%>	
 	<% content_for :header do -%>
 		<% if current_user == @user -%>
-			My Account
+			<%= t('site.profile.me', :name => current_user.name) %>
 		<% else -%>
 			Profile for <%= @user.login %>
 		<% end -%>

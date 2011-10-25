@@ -1,9 +1,9 @@
-<h3>Profile</h3>
+<h3><%= t('site.profile.profile') %></h3>
 
-<p><%= link_to "Update my profile", edit_profile_url(current_user) %></p>
+<p><%= link_to t('site.profile.actions.update'), edit_profile_url(current_user) %></p>
 
 <table class="overview">
 	<% @profile.public_attributes.each do |column| -%>
-		<%= cell "#{column.humanize}", "#{@profile.send(column) || '-'}" %>
+		<%= cell t("site.profile.attributes.#{column}"), "#{@profile.send(column) || '-'}" %>
 	<% end -%>
 </table>

@@ -5,18 +5,18 @@
     <title><%= configatron.site_namemobile %></title>
     <%= stylesheet_link_tag "/jqtouch/jqtouch.min.css", "/jqtouch/themes/apple/theme.min.css" %>
 
-	<%= (javascript_include_merged :defaults ).html_safe %>
+    <%= stylesheet_link_tag :defaults %>
     <%= javascript_include_tag "/jqtouch/jqtouch.min.js" %>
-	<link rel="apple-touch-icon" href="/images/iphone-icon.png"/>
-	<link rel="apple-touch-startup-image" href="/images/iphone-startup-screen.png"/>
-	<%=  csrf_meta_tag %>
+    <link rel="apple-touch-icon" href="/images/iphone-icon.png"/>
+    <link rel="apple-touch-startup-image" href="/images/iphone-startup-screen.png"/>
+    <%=  csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
     <div class="current">
       <div class="toolbar">
         <h1><%= configatron.site_namemobile %></h1>
-		<%= link_to "Back", nil, :class => "back" unless current_page? root_path %>
+    		<%= link_to t('back'), nil, :class => "back" unless current_page? root_path %>
         <%= link_to "Full Site", root_url(:mobile => 0), :class => "button", :rel => "external" %>
         <%= yield(:toolbar) %>
       </div>

@@ -10,6 +10,8 @@ Rails3::Application.routes.draw do
   resources :users do
      member do
        get :edit_password 
+       get :set_login
+       put :update_login
        put :update_password
        get :edit_email
        put :update_email
@@ -33,6 +35,7 @@ Rails3::Application.routes.draw do
     match '/settings/update_settings' => 'settings#update_settings',  :requirements => { :method => :post }
     resources :announcements
     resources :commits
+    resources :delayed_jobs, :only => [:index]
     match '/users/search' => 'users#search',  :requirements => { :method => :get }
     resources :users do 
       member do 
@@ -43,6 +46,7 @@ Rails3::Application.routes.draw do
         put :reset_password
         get :set_user_login
         get :set_user_email        
+        match 'role/:role' => "users#toggle_role", :as => "toggle_role"
       end
       collection do
         get :pending
@@ -52,6 +56,9 @@ Rails3::Application.routes.draw do
       end
     end
   end
+  
+  match '/auth/:provider/callback' => 'authentications#create', :as => :auth_callback
+  resources :authentications
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

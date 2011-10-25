@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100831101816) do
+ActiveRecord::Schema.define(:version => 20111014190542) do
 
   create_table "announcements", :force => true do |t|
     t.text     "headline"
@@ -21,6 +22,30 @@ ActiveRecord::Schema.define(:version => 20100831101816) do
     t.datetime "updated_at"
   end
 
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "real_name"
@@ -28,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20100831101816) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "facebook_email"
   end
 
   create_table "roles", :force => true do |t|
@@ -52,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20100831101816) do
   create_table "users", :force => true do |t|
     t.string   "email",                :limit => 100
     t.string   "encrypted_password",   :limit => 128, :default => "",        :null => false
-    t.string   "password_salt",                       :default => "",        :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -70,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20100831101816) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "language"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
