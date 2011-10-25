@@ -133,5 +133,6 @@ h2. Collaborators
 * dannymcc
 * rorcraft
 * rposborne
+* swistaczek
 * sanchitg
 * t0d0r
