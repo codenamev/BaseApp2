@@ -54,7 +54,7 @@ en:
         new: "New User"
         activate: "Activation"
         suspend: "Suspend"
-        delete: "Delte"
+        delete: "Delete"
         roles: "Roles"
         send_password: "Send Password"
       show:
@@ -64,21 +64,21 @@ en:
         take: "Take %{role}"
       index:
         display:
-          zero: Brak użytkowników
-          one: Jeden użytkownik
-          few: %{count} użytkowników
-          other: %{count} użytkowników
+          zero: No Users
+          one: One User
+          few: %{count} users
+          other: %{count} users
         search: Search
-        search_by: Email lub login...
-        filtr: Filtruj użytkowników
+        search_by: Email Address
+        filtr: Filter Users
         options:
-          all: Wszyscy użytkownicy
-          active: Tylko aktywni użytkownicy
-          suspended: Tylko zawieszeni użytkownicy
-          pending: Tylko użytkownicy oczekujący na aktywację
-          deleted: Tylko skasowani użytkownicy
+          all: All Users
+          active: Active Users
+          suspended: Suspended Users
+          pending: Pending Users
+          deleted: Deleted Users
     delayed_jobs:
-      title: "Delayed Job"
+      title: "Delayed Jobs"
       attributes:
         id: ID
         priority: Priority
