@@ -41,27 +41,27 @@ en:
     dashboard: 
       title: Admin Dashboard
       about:
-        title: 'Jesteś zalogowany jako administrator, spoglądasz teraz na kokpit.'
+        title: 'You are logged in as an administrator.'
         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     settings: 
       title: 'Settings'
       options:
-        manage: "Zarządzaj ustawieniami %{app}"
+        manage: "Manage Settings for %{app}"
     users:
       title: "Users"
       options:
-        manage: "Zarządzaj kontami użytkownika"
-        new: "Nowy użytkownik"
-        activate: "Aktywuj"
-        suspend: "Zawieś"
-        delete: "Skasuj"
-        roles: "Uprawnienia"
-        send_password: "Wyślij nowe hasło"
+        manage: "Manage user accounts"
+        new: "New User"
+        activate: "Activation"
+        suspend: "Suspend"
+        delete: "Delte"
+        roles: "Roles"
+        send_password: "Send Password"
       show:
-        title: "Wyświetlanie użytkownika %{login}"
-        status: "Status konta: %{status}"
-        grant: "Nadaj uprawnienia %{role}"
-        take: "Zabierz uprawnienia %{role}"
+        title: "User display %{login}"
+        status: "Status: %{status}"
+        grant: "Grant %{role}"
+        take: "Take %{role}"
       index:
         display:
           zero: Brak użytkowników
