@@ -20,11 +20,9 @@ gem "aasm"
 gem "gravatar_image_tag"
 gem "nifty-generators", :group => :development
 gem "polish"
-gem "ruby_parser"
 gem "simple_form"
 gem "i18n_generators"
 gem "i18n_routing"
-gem "kaminari"
 gem "delayed_job"
 gem "oauth2"
 gem "fb_graph"
@@ -32,7 +30,8 @@ gem "omniauth"
 
 group :development do
   # To use debugger
-  gem 'ruby-debug'
+  # gem 'ruby-debug'
+  # gem 'ruby-debug19' if you are using ruby 1.9.2 or higher
   gem 'sqlite3-ruby', :require => "sqlite3"
   gem "nifty-generators"
 end
