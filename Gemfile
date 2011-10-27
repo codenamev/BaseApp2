@@ -18,7 +18,6 @@ gem "configatron"
 gem "declarative_authorization"
 gem "aasm"
 gem "gravatar_image_tag"
-gem "nifty-generators", :group => :development
 gem "polish"
 gem "simple_form"
 gem "i18n_generators"
@@ -39,11 +38,9 @@ end
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :test, :development do
-	gem 'turn'
-	gem 'rspec-rails'
-	gem 'capybara'
-	gem 'guard-rspec'
-	gem 'growl_notify'
-	gem 'launchy'
+group :test do
+  gem 'webrat'
+  gem 'rspec'
+  gem 'rspec-rails'
 end
+gem "mocha", :group => :test
