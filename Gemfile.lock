@@ -140,6 +140,7 @@ GEM
       oa-oauth (= 0.3.2)
       oa-openid (= 0.3.2)
     orm_adapter (0.0.5)
+    pg (0.11.0)
     polish (0.1.5)
       bundler
       i18n
@@ -256,6 +257,7 @@ DEPENDENCIES
   nifty-generators
   oauth2
   omniauth
+  pg
   polish
   post_commit
   rails (~> 3.1.0)
