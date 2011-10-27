@@ -17,3 +17,5 @@ config/*.yml
 rerun.txt
 pickle-email-*.html
 db/test.sqlite3
+
+db/test.sqlite3
