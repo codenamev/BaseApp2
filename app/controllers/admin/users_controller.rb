@@ -4,9 +4,27 @@ class Admin::UsersController < Admin::BaseController
     in_place_edit_for :user, attr.to_sym
   end
   
+  def toggle_role
+    @user = User.find(params[:id])
+    role = Role.find_by_name(params[:role])
+    if @user.roles.include?(role)
+      @user.roles.delete(role)
+      flash[:notice] = "Granted #{role.name} permissions"
+    else
+      @user.roles << role
+      @user.save
+      flash[:notice] = "Revoked #{role.name} permissions"
+    end
+    if request.env["HTTP_REFERER"].present?
+      redirect_to :back
+    else
+      redirect_to admin_user_path(@user)
+    end
+  end
+  
   def search
     # Basic Search with pagination
-    @users = User.search(params[:search]).paginate(:per_page => 100, :page => params[:page])  
+    @users = User.search(params[:search], params[:page])
     render :index
   end
   
@@ -19,22 +37,22 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def pending
-    @users = User.paginate :all, :conditions => {:state => 'pending'}, :page => params[:page]
+    @users = User.paginate :conditions => {:state => 'pending'}, :page => params[:page]
     render :action => 'index'
   end
   
   def suspended
-    @users = User.paginate :all, :conditions => {:state => 'suspended'}, :page => params[:page]
+    @users = User.paginate :conditions => {:state => 'suspended'}, :page => params[:page]
     render :action => 'index'
   end
   
   def active
-    @users = User.paginate :all, :conditions => {:state => 'active'}, :page => params[:page]
+    @users = User.paginate :conditions => {:state => 'active'}, :page => params[:page]
     render :action => 'index'
   end
   
   def deleted
-    @users = User.paginate :all, :conditions => {:state => 'deleted'}, :page => params[:page]
+    @users = User.paginate :conditions => {:state => 'deleted'}, :page => params[:page]
     render :action => 'index'
   end
   
@@ -74,7 +92,7 @@ class Admin::UsersController < Admin::BaseController
   # GET /admin_users
   # GET /admin_users.xml
   def index
-    @users = User.paginate :all, :page => params[:page]
+    @users = User.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

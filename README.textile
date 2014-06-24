@@ -1,9 +1,32 @@
-h1. BaseApp2
+h1. BaseApp2     
+!https://secure.travis-ci.org/dannymcc/BaseApp2.png!
+
+h3. Contributing
+
+Here are some ways *you* can contribute:
+
+* by using alpha, beta, and prerelease versions
+* by reporting bugs
+* by suggesting new features
+* by writing or editing documentation
+* by writing specifications
+* by writing code (**no patch is too small**: fix typos, add comments, clean up inconsistent whitespace)
+* by refactoring code
+* by resolving [issues](http://github.com/dannymcc/BaseApp2/issues)
+* by reviewing patches
+
+h3. Submitting an Issue
+
+We use the [GitHub issue tracker](http://github.com/dannymcc/BaseApp2/issues) to track bugs and
+features. Before submitting a bug report or feature request, check to make sure it hasn't already
+been submitted. You can indicate support for an existing issuse by voting it up. When submitting a
+bug report, please include a [Gist](http://gist.github.com/) that includes a stack trace and any
+details that may be necessary to reproduce the bug, including your gem version, Ruby version, and
+operating system. Ideally, a bug report should include a pull request with failing specs.
 
 h2. Requirements
 
-Rails 3.0.7
-For Rails 2.3 please use the alternative branch.
+Rails 3.1
 
 h2. Features
 
@@ -63,5 +86,6 @@ h2. Collaborators
 * dannymcc
 * rorcraft
 * rposborne
+* swistaczek
 * sanchitg
 * t0d0r

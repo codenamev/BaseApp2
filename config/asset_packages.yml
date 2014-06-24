@@ -11,3 +11,6 @@ stylesheets:
   - admin
 - dialog:
   - dialog
+
+# rails, application
+# default, admin

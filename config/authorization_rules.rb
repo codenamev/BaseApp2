@@ -1,14 +1,23 @@
 authorization do  
-
   role :admin do
-    has_permission_on [:admin_commits, :admin_dashboard, 
-      :admin_settings, :admin_users, :admin_announcements], :to => [:manage]
-    has_permission_on :admin_users, :to => [:active, :search,:pending,:reset_password,:suspended, :activate ,:deleted, :suspend , :unsuspend, :purge]
+    has_permission_on [
+      :admin_commits, 
+      :admin_dashboard, 
+      :admin_settings, 
+      :admin_announcements, 
+      :admin_delayed_jobs,
+      :admin_users
+    ], :to => [:manage]
+    
+    has_permission_on :admin_users, :to => [
+      :active, :search,:pending,:reset_password,:suspended, :activate,
+      :deleted, :suspend , :unsuspend, :purge, :toggle_role, :update
+    ]
   end
-  # Anyone who does not have a role assigned to them -- a regular user
-  # role :guest do
-  #   
-  # end
+
+  role :guest do
+    
+  end
 end
   
 privileges do

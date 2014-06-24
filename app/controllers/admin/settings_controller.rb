@@ -8,10 +8,10 @@ class Admin::SettingsController < Admin::BaseController
       setting = Setting.find(input[0])
       
       value = case(setting.field_type)
-      when 'string':        input[1].to_s
-      when 'integer':       input[1].to_i
-      when 'boolean':       input[1].to_s
-      when 'float':         input[1].to_f
+      when 'string'   then          input[1].to_s
+      when 'integer'  then          input[1].to_i
+      when 'boolean'  then          input[1].to_s
+      when 'float'    then          input[1].to_f
       end
       
       setting.update_attribute(:value, value)

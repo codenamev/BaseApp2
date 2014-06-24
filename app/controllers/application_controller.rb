@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   
   before_filter :prepare_for_mobile
+  before_filter :set_user_language
   
   helper :all # include all helpers, all the time
-  
+
   # Return the value for a given setting
   def s(identifier)
     Setting.get(identifier)
@@ -17,7 +18,14 @@ class ApplicationController < ActionController::Base
   alias :logged_in? :user_signed_in?
   helper_method :logged_in?
 
-  layout :layout_by_resource  
+  layout Proc.new { |controller| 
+    if devise_controller?
+      "login"
+    else
+      controller.request.xhr? ? 'simple' : 'application' 
+    end
+  }
+  
   def layout_by_resource
     if devise_controller? 
       "login"
@@ -36,6 +44,10 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :mobile_device?
+  
+  def set_user_language
+    I18n.locale = current_user.language if logged_in?
+  end
 
   def prepare_for_mobile
     session[:mobile_param] = params[:mobile] if params[:mobile]

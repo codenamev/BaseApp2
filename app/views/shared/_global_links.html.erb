@@ -1,10 +1,10 @@
 <% if logged_in? %>
- 	<strong><%= current_user.login %></strong> | 
-	<%= link_to "Dashboard", root_url %> | 
-	<%= link_to "My Account", profile_url(current_user) %> | 
-	<% if admin? -%><%= link_to "Administration", admin_root_url %> | <% end -%>
-	<%= link_to "Log out", destroy_user_session_path %>
+ 	<strong><%= current_user.site_name %></strong> | 
+	<%= link_to t('site.dashboard.title'), root_url %> | 
+	<%= link_to t('site.profile.title'), profile_url(current_user) %> | 
+	<% if admin? -%><%= link_to t('admin.dashboard.title'), admin_root_url %> | <% end -%>
+	<%= link_to t('session.log_out'), destroy_user_session_path %>
 <% else %>
-	<%= link_to "Sign up", new_user_registration_path %> | 
-	<%= link_to "Log in", new_user_session_path %>
+	<%= link_to t('session.sign_up'), new_user_registration_path %> | 
+	<%= link_to t('session.log_in'), new_user_session_path %>
 <% end %>
