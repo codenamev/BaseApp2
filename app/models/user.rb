@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   # Hooks
   after_create :create_profile, :register!
 
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :language
   before_validation(:set_default, :on => :create)
   
   def self.search(search, page)
@@ -90,7 +89,7 @@ class User < ActiveRecord::Base
   protected
   
   def apply_facebook(omniauth)
-    if (extra = omniauth['extra']['user_hash'] rescue false)
+    if (extra = omniauth['extra']['raw_info'] rescue false)
       self.email = (extra['email'] rescue '')
     end
   end

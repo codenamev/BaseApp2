@@ -1,6 +1,16 @@
 # Ernest Bursa
 # http://ernest.bzdury.pl
 en:
+  date:
+    formats:
+      default: '%m/%d/%Y'
+      with_weekday: '%a %m/%d/%y'
+
+  time:
+    formats:
+      default: '%a, %b %-d, %Y at %r'
+      date: '%b %-d, %Y'
+      short: '%B %d'
   site:
     dashboard:
       title: Dashboard
@@ -34,9 +44,9 @@ en:
     login:
       title: Login
       text:
-        signed_with: Jesteś akutalnie zalogowany używając następujących usług
-        sign_with_other: Loguj się używając innych usług
-        sign_using: Zaloguj się używając jednej z poniższych usług
+        signed_with: You logged in using the following services
+        sign_with_other: Log in using other services
+        sign_using: Log in using one of these services
   admin:
     dashboard: 
       title: Administration
@@ -66,8 +76,8 @@ en:
         display:
           zero: No Users
           one: One User
-          few: %{count} users
-          other: %{count} users
+          few: "%{count} users"
+          other: "%{count} users"
         search: Search
         search_by: Email Address
         filtr: Filter Users

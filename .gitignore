@@ -1,3 +1,6 @@
+!.keep
+*.swp
+*.swo
 *.rbc
 *.sassc
 .sass-cache
@@ -5,9 +8,11 @@
 capybara-*.html
 .rspec
 /.bundle
+/.env
 /db/*.sqlite3
 /vendor/bundle
 /log/*
+/tags
 /tmp/*
 /public/system/*
 /coverage/
@@ -16,6 +21,3 @@ capybara-*.html
 config/*.yml
 rerun.txt
 pickle-email-*.html
-db/test.sqlite3
-
-db/test.sqlite3

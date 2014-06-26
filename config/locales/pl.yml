@@ -66,8 +66,8 @@ pl:
         display:
           zero: Brak użytkowników
           one: Jeden użytkownik
-          few: %{count} użytkowników
-          other: %{count} użytkowników
+          few: "%{count} użytkowników"
+          other: "%{count} użytkowników"
         search: Szukaj
         search_by: Email lub login...
         filtr: Filtruj użytkowników

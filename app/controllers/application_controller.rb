@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :prepare_for_mobile
   before_filter :set_user_language
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
   
   helper :all # include all helpers, all the time
 
@@ -11,10 +13,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :s
   
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '9fe6825f97cc334d88925fde5c4808a8'
-  
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+
   alias :logged_in? :user_signed_in?
   helper_method :logged_in?
 
@@ -33,6 +35,13 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:login, :name, :identity_url, :language, :email, :password, :password_confirmation) }
+  end  
+  
     
   private
 

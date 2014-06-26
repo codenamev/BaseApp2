@@ -70,19 +70,23 @@ Note: As long as there are no Settings in the database, the ‘Settings’ tab f
 
 h2. Getting Started
 
-1. At the command prompt:
-     * bundle install
-     * rake db:migrate
-     * rails s
+This repository comes equipped with a self-setup script:
 
-2. Go to http://localhost:3000/
+    % ./bin/setup
 
-3. Administration username and password are as follows:
+After setting up, you can run the application using [foreman]:
+
+    % foreman start
+
+[foreman]: http://ddollar.github.io/foreman/
+
+h3. Administration username and password are as follows:
      * admin
      * baseapp
 
 h2. Collaborators
 
+* codenamev
 * dannymcc
 * rorcraft
 * rposborne
