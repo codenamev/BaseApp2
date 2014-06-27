@@ -9,35 +9,35 @@ module AasmRoles
         include StatefulRolesInstanceMethods
         include AASM
         aasm_column :state
-        aasm_state :passive
-        aasm_initial_state :initial => :pending
-        aasm_state :pending, :enter => :make_activation_code
-        aasm_state :active,  :enter => :do_activate
-        aasm_state :suspended
-        aasm_state :deleted, :enter => :do_delete
+        aasm.state :passive
+        aasm.initial_state :initial => :pending
+        aasm.state :pending, :enter => :make_activation_code
+        aasm.state :active,  :enter => :do_activate
+        aasm.state :suspended
+        aasm.state :deleted, :enter => :do_delete
 
-        aasm_event :register do
+        aasm.event :register do
           transitions :from => [:passive, :pending], :to => :active, :guard => Proc.new {|u| !(u.encrypted_password.blank? && u.password.blank?) }
         end
         
-        aasm_event :register_openid do
+        aasm.event :register_openid do
           transitions :from => :passive, :to => :active, :guard => Proc.new {|u| !u.not_using_openid? }
         end
         
-        aasm_event :activate do
+        aasm.event :activate do
           transitions :from => :pending, :to => :active
           transitions :from => :passive, :to => :active 
         end
         
-        aasm_event :suspend do
+        aasm.event :suspend do
           transitions :from => [:passive, :pending, :active], :to => :suspended
         end
         
-        aasm_event :delete do
+        aasm.event :delete do
           transitions :from => [:passive, :pending, :active, :suspended], :to => :deleted
         end
 
-        aasm_event :unsuspend do
+        aasm.event :unsuspend do
           transitions :from => :suspended, :to => :active #,  :guard => Proc.new {|u| !u.activated_at.blank? }
           transitions :from => :suspended, :to => :pending #, :guard => Proc.new {|u| !u.activation_code.blank? }
           transitions :from => :suspended, :to => :passive

@@ -12,7 +12,6 @@ gem "aasm"
 gem 'capistrano'
 gem 'capistrano-ext'
 gem "configatron"
-gem "configatron"
 gem "declarative_authorization"
 gem "delayed_job_active_record"
 gem 'devise'
@@ -40,7 +39,7 @@ group :development do
   gem "nifty-generators"
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'sqlite3-ruby', :require => "sqlite3"
+  #gem 'sqlite3-ruby', :require => "sqlite3"
 end
 
 group :production do
