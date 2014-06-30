@@ -20,6 +20,7 @@ gem "fb_graph"
 gem "gravatar_image_tag"
 #gem "i18n_generators"
 #gem "i18n_routing"
+gem "jquery-rails"
 gem "oauth2"
 gem "omniauth"
 gem 'omniauth-openid'

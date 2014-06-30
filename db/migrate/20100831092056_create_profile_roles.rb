@@ -47,7 +47,7 @@ class CreateProfileRoles < ActiveRecord::Migration
     
     user = User.create do |u|
       u.login = 'admin'
-      u.password = u.password_confirmation = 'baseapp'
+      u.password = u.password_confirmation = 'baseapp2'
       u.email = 'nospam@baseapp.local'
     end
     

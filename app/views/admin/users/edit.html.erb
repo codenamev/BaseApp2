@@ -15,7 +15,7 @@ Edit User
 <%= cell((f.label :language), (f.select(:language, [['English', 'en'], ['Polski', 'pl']])))%>
 
 
-<%= cell("", (submit_tag 'Create account'))%>
+<%= cell("", f.submit('Save User'))%>
 <% end -%>
 <%= cell("", (link_to t('back'), admin_users_path))%>
 </table>

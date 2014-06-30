@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   # Administration
   namespace :admin do 
     root :to => 'dashboard#index'
-    resources :settings 
-    post '/settings/update_settings' => 'settings#update_settings'
+    resources :settings, only: [:index]
+    post '/settings' => 'settings#update'
     resources :announcements
     resources :commits
     resources :delayed_jobs, :only => [:index]

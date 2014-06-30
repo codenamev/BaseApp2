@@ -41,7 +41,7 @@ class Admin::AnnouncementsController < Admin::BaseController
   # POST /announcements
   # POST /announcements.xml
   def create
-    @announcement = Announcement.new(params[:announcement])
+    @announcement = Announcement.new(announcement_params)
 
     respond_to do |format|
       if @announcement.save
@@ -60,7 +60,7 @@ class Admin::AnnouncementsController < Admin::BaseController
     @announcement = Announcement.find(params[:id])
 
     respond_to do |format|
-      if @announcement.update_attributes(params[:announcement])
+      if @announcement.update_attributes(announcement_params)
         format.html { redirect_to(admin_announcements_path, :notice => 'Announcement was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -80,5 +80,11 @@ class Admin::AnnouncementsController < Admin::BaseController
       format.html { redirect_to(admin_announcements_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def announcement_params
+    params.require(:announcement).permit(:headline, :message, :starts_at, :ends_at)
   end
 end

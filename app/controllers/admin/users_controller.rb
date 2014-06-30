@@ -1,9 +1,5 @@
 class Admin::UsersController < Admin::BaseController
   
-  %w(email login).each do |attr|
-    in_place_edit_for :user, attr.to_sym
-  end
-  
   def toggle_role
     @user = User.find(params[:id])
     role = Role.find_by_name(params[:role])
@@ -37,22 +33,22 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def pending
-    @users = User.paginate :conditions => {:state => 'pending'}, :page => params[:page]
+    @users = User.where(state: 'pending').paginate :page => params[:page]
     render :action => 'index'
   end
   
   def suspended
-    @users = User.paginate :conditions => {:state => 'suspended'}, :page => params[:page]
+    @users = User.where(state: 'suspended').paginate :page => params[:page]
     render :action => 'index'
   end
   
   def active
-    @users = User.paginate :conditions => {:state => 'active'}, :page => params[:page]
+    @users = User.where(state: 'active').paginate :page => params[:page]
     render :action => 'index'
   end
   
   def deleted
-    @users = User.paginate :conditions => {:state => 'deleted'}, :page => params[:page]
+    @users = User.where(state: 'deleted').paginate :page => params[:page]
     render :action => 'index'
   end
   
@@ -133,7 +129,7 @@ class Admin::UsersController < Admin::BaseController
 
   # POST /admin/users
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
    # debugger
     respond_to do |format|
       if @user.save
@@ -149,7 +145,7 @@ class Admin::UsersController < Admin::BaseController
   
   def update
     @user = User.find(params[:id])
-    @user.attributes = params[:user]
+    @user.attributes = user_params
     
     respond_to do |format|
       if @user.save
@@ -160,4 +156,9 @@ class Admin::UsersController < Admin::BaseController
     end
   end
   
+  private
+
+  def user_params
+    params.require(:user).permit(:login, :email, :password, :password_confirmation, :language)
+  end
 end

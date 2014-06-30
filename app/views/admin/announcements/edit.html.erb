@@ -2,7 +2,7 @@
 	<%= t('.title')%>
 <% end -%>
 
-<%= simple_form_for @announcement do |f| %>
+<%= simple_form_for [:admin, @announcement] do |f| %>
   <%= render :partial => 'form', :locals => {:f => f}%>
 <% end %>
 
