@@ -3,10 +3,8 @@
 <html>
   <head>
     <title><%= configatron.site_namemobile %></title>
-    <%= stylesheet_link_tag "/jqtouch/jqtouch.min.css", "/jqtouch/themes/apple/theme.min.css" %>
-
-    <%= stylesheet_link_tag :application %>
-    <%= javascript_include_tag "/jqtouch/jqtouch.min.js" %>
+    <%= stylesheet_link_tag 'application', 'mobile' %>
+    <%= javascript_include_tag "mobile" %>
     <link rel="apple-touch-icon" href="/images/iphone-icon.png"/>
     <link rel="apple-touch-startup-image" href="/images/iphone-startup-screen.png"/>
     <%=  csrf_meta_tag %>
